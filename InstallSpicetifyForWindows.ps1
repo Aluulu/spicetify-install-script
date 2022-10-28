@@ -42,20 +42,6 @@ else {
         }
     } # End of function DownloadSpicetifyScript
 
-    function DownloadDribblishScript {
-        Try {
-            # The try function will try to run the following code, and then catch any errors. 
-            Invoke-WebRequest -UseBasicParsing "https://raw.githubusercontent.com/morpheusthewhite/spicetify-themes/master/Dribbblish/install.ps1" | Invoke-Expression
-        }
-        Catch {
-            # The catch function will catch any specificied error codes. If left blank it will catch ALL errors.
-            Write-Host "Unable to download Dribblish Theme from GitHub" -foreground Red
-            Write-host "Error message is as followed: " -foreground Red
-            $Error[0].exception
-            $Error[0].Exception.GetType().FullName
-        }
-    } # End of function DownloadDribblishScript
-
     function ConfigureSpotify {
     Start-Sleep -Seconds 5 # pauses for 5 seconds to allow Spotify time to load
 
@@ -77,6 +63,5 @@ else {
 
     RemoveOldSpicetifyInstall
     DownloadSpicetifyScript
-    DownloadDribblishScript
     ConfigureSpotify
 } # End if (if CheckIfSpicetifyIsInstalled) check
