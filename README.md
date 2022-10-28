@@ -1,11 +1,11 @@
 ![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)![Spotify](https://img.shields.io/badge/Spotify-1ED760?style=for-the-badge&logo=spotify&logoColor=white)![Linux](https://img.shields.io/badge/Linux-0078D6?style=for-the-badge&logo=linux&logoColor=white)
 
-# spicetify-script-install
+# spicetify-install-script
 This script will automatically install [Spicetify](https://github.com/khanhas/spicetify-cli), afterwards it will install a few [extensions](https://github.com/khanhas/spicetify-cli/wiki/Extensions).
 
 Run these scripts from your terminal without installing the scripts:  
-**Windows:** ```iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/Aluulu/spicetify-dribblish-script-install/main/InstallSpicetifyForWindows.ps1'))```  
-**Flatpak:** ```curl -fsSL https://raw.githubusercontent.com/Aluulu/spicetify-dribblish-script-install/main/InstallSpicetifyForFlatpak.sh | sh```
+**Windows:** ```iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/Aluulu/spicetify-install-script/main/InstallSpicetifyForWindows.ps1'))```  
+**Flatpak:** ```curl -fsSL https://raw.githubusercontent.com/Aluulu/spicetify-install-script/main/InstallSpicetifyForFlatpak.sh | sh```
 
 
 ## How the script works

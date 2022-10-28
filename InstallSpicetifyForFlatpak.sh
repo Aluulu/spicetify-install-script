@@ -3,7 +3,7 @@
 # chmod u+x /Location/To/Script/InstallSpicetifyForFlatpak.sh
 
 # Use this command to run the latest version of this script from GitHub:
-# curl -fsSL https://raw.githubusercontent.com/Aluulu/spicetify-dribblish-script-install/main/InstallSpicetifyForFlatpak.sh | sh
+# curl -fsSL https://raw.githubusercontent.com/Aluulu/spicetify-install-script/main/InstallSpicetifyForFlatpak.sh | sh
 
 # Check if the configuration file exists. If it does, then spicetify must be installed already
 if [ -f $HOME/.config/spicetify/config-xpui.ini ];
@@ -42,6 +42,8 @@ else # If spicetify isn't installed, it will install it
 
 	# Enables the extensions
 	spicetify config extensions fullAppDisplay.js
+    spicetify config custom_apps reddit
+    spicetify config custom_apps lyrics-plus
 
 	# Runs Spotify so that you can see if the changes have worked
 	flatpak run com.spotify.Client

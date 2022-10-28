@@ -1,5 +1,5 @@
 # Use this command to run the latest version of this script from GitHub:
-# iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/Aluulu/spicetify-dribblish-script-install/main/InstallSpicetifyForWindows.ps1'))
+# iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/Aluulu/spicetify-install-script/main/InstallSpicetifyForWindows.ps1'))
 
 $ErrorActionPreference = 'Stop'
 
