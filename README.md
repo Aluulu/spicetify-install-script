@@ -1,19 +1,19 @@
 ![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)![Spotify](https://img.shields.io/badge/Spotify-1ED760?style=for-the-badge&logo=spotify&logoColor=white)![Linux](https://img.shields.io/badge/Linux-0078D6?style=for-the-badge&logo=linux&logoColor=white)
 
 # spicetify-script-install
-This script will automatically install [Spicetify](https://github.com/khanhas/spicetify-cli), afterwards it will install [extensions](https://github.com/khanhas/spicetify-cli/wiki/Extensions).
+This script will automatically install [Spicetify](https://github.com/khanhas/spicetify-cli), afterwards it will install a few [extensions](https://github.com/khanhas/spicetify-cli/wiki/Extensions).
 
 Run these scripts from your terminal without installing the scripts:  
-Windows: ```iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/Aluulu/spicetify-dribblish-script-install/main/InstallSpicetifyForWindows.ps1'))```  
-Flatpak: ```curl -fsSL https://raw.githubusercontent.com/Aluulu/spicetify-dribblish-script-install/main/InstallSpicetifyForFlatpak.sh | sh```
+**Windows:** ```iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/Aluulu/spicetify-dribblish-script-install/main/InstallSpicetifyForWindows.ps1'))```  
+**Flatpak:** ```curl -fsSL https://raw.githubusercontent.com/Aluulu/spicetify-dribblish-script-install/main/InstallSpicetifyForFlatpak.sh | sh```
 
 
 ## How the script works
 ### Installation of Spicetify
-The script works by utilising the installation script found on the offical Spicetify repository.  
+The script works by utilising the installation script found on the offical Spicetify website.  
 The script for Windows is: https://raw.githubusercontent.com/khanhas/spicetify-cli/master/install.ps1  
 The script for Flatpak is: https://raw.githubusercontent.com/spicetify/spicetify-cli/master/install.sh  
-The home page of said script here found here: https://github.com/khanhas/spicetify-cli/wiki/Installation
+The home page of said script here found here: https://spicetify.app/docs/advanced-usage/installation
 
 ### Instation of Extensions
 The extensions this script will install are: [FullAppDisplay](https://github.com/khanhas/spicetify-cli/wiki/Extensions#full-app-display), [Reddit](https://github.com/khanhas/spicetify-cli/wiki/Custom-Apps#reddit), and [Lyrics Plus](https://github.com/khanhas/spicetify-cli/wiki/Custom-Apps#lyrics-plus).  
