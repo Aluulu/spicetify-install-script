@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Note: You may need to apply permissions for this script in order to run it.
 # To do so, use this command in a terminal:
 # chmod u+x /Location/To/Script/InstallSpicetifyForFlatpak.sh
