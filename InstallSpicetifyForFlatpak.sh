@@ -19,13 +19,49 @@ else # If spicetify isn't installed, it will install it
 	flatpak run com.spotify.Client
 
 	sleep 5  # Waits 5 seconds.
+	
+	# Check if the config file exists
+	# Set the file location and name as a variable
+	filename=$HOME/.config/spicetify/config-xpui.ini
 
-	killall spotify
+	# Create variable to be used as a flag to indicate if the file exists
+	filefound=0
+
+	# Create a while loop to loop through until the file is found
+	while [ $filefound -eq 0 ]
+	do
+
+		# Check if the file exists
+		if [ -f "$filename" ];
+
+		# If the file exists, then set the flag to 1 and exit the loop
+		then
+			filefound=1
+
+		# If the file doesn't exist, then wait 1 second and check again
+		else
+			printf "%s not found. Waiting 1 second and checking again.\n" "$filename"
+			sleep 1
+
+		fi
+	done
 
 	# Changes the configuration to be correct
-	# Changes line 2 and line 8
-	sed -i '2 c\spotify_path            = /var/lib/flatpak/app/com.spotify.Client/x86_64/stable/active/files/extra/share/spotify/' $HOME/.config/spicetify/config-xpui.ini
-	sed -i '8 c\spotify_path            = prefs_path              = '$HOME'/.var/app/com.spotify.Client/config/spotify/prefs' $HOME/.config/spicetify/config-xpui.ini
+	# Changes spotify_path to /var/lib/flatpak/app/com.spotify.Client/x86_64/stable/active/files/extra/share/spotify/
+	# Changes prefs_path to /home/$NameHere/.var/app/com.spotify.Client/config/spotify/prefs
+
+	# Set the target word and replacement text
+	TWord="spotify_path"
+	RText="spotify_path            = /var/lib/flatpak/app/com.spotify.Client/x86_64/stable/active/files/extra/share/spotify/"
+
+	# https://linuxize.com/post/how-to-use-sed-to-find-and-replace-string-in-files/
+	# sed finds the target word and replaces it with the replacement text
+	# -i is used to edit the file in place
+	# s is used to substitute
+	# | is used to separate the target word and replacement text
+	# .* is used to match any character 0 or more times, so .* before and after the target word is used to match the entire line
+	# This will replace the entire line with the replacement text
+	sed -i "s|.*$TWord.*|$RText|" "$filename"
 
 	# Enables read and write permissions for Spicetify since Flatpak limits permissions
 	sudo chmod a+wr /var/lib/flatpak/app/com.spotify.Client/x86_64/stable/active/files/extra/share/spotify
