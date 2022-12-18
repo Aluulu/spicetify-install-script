@@ -30,7 +30,13 @@ else
 	# Waits 5 seconds to allow Spotify to initialise
 	sleep 5
 
-	sleep 5  # Waits 5 seconds.
+    # Kills the running Spotify instance
+	spicetify restart
+	
+	# Restart the shell to add Spotify to PATH
+	# .config/spicetify won't appear unless the shell is restarted
+	# Note: Unsure if this will work :)
+	exec $SHELL
 	
 	# Check if the config file exists
 	# Set the file location and name as a variable
