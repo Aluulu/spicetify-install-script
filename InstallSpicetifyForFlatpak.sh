@@ -8,17 +8,27 @@
 # curl -fsSL https://raw.githubusercontent.com/Aluulu/spicetify-install-script/main/InstallSpicetifyForFlatpak.sh | sh
 
 # Check if the configuration file exists. If it does, then spicetify must be installed already
-if [ -f $HOME/.config/spicetify/config-xpui.ini ];
+if [ -f "$HOME"/.config/spicetify/config-xpui.ini ];
 then
+
+	# Reapply permissions to the Spotify directory, as the update will have removed them
 	sudo chmod a+wr /var/lib/flatpak/app/com.spotify.Client/x86_64/stable/active/files/extra/share/spotify
 	sudo chmod a+wr -R /var/lib/flatpak/app/com.spotify.Client/x86_64/stable/active/files/extra/share/spotify/Apps
 
+	# Run the backup to restore Spicetify
 	spicetify backup apply
-else # If spicetify isn't installed, it will install it
+
+# If spicetify isn't installed, it will install it
+else
+
+	# Download and install spicetify from the offical GitHub repository
 	curl -fsSL https://raw.githubusercontent.com/spicetify/spicetify-cli/master/install.sh | sh
 
-	# Runs spotify so that it is initialised and then kills it 5 seconds after. (Note, this may count as a crash)
+	# Runs spotify so that it is initialised
 	flatpak run com.spotify.Client
+
+	# Waits 5 seconds to allow Spotify to initialise
+	sleep 5
 
 	sleep 5  # Waits 5 seconds.
 	
@@ -72,9 +82,6 @@ else # If spicetify isn't installed, it will install it
 	# Backs up Spicetify
 	spicetify backup
 
-	# Applies Spicetify onto spotify
-	spicetify apply
-
 	# Copies the extensions from the spicetify folder to the configuration folder
 	cp ~/.spicetify/Extensions/* ~/.config/spicetify/Extensions
 
@@ -82,6 +89,9 @@ else # If spicetify isn't installed, it will install it
 	spicetify config extensions fullAppDisplay.js
     spicetify config custom_apps reddit
     spicetify config custom_apps lyrics-plus
+
+	# Applies the newly added extensions
+	spicetify apply
 
 	# Runs Spotify so that you can see if the changes have worked
 	flatpak run com.spotify.Client
