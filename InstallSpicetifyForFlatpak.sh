@@ -81,6 +81,13 @@ else
 	# This will replace the entire line with the replacement text
 	sed -i "s|.*$TWord.*|$RText|" "$filename"
 
+	# Replaces the pref path to match the correct file path
+
+	TWord="prefs_path"
+	RText="prefs_path              = $HOME/.var/app/com.spotify.Client/config/spotify/prefs"
+
+	sed -i "s|.*$TWord.*|$RText|" "$filename"
+
 	# Enables read and write permissions for Spicetify since Flatpak limits permissions
 	sudo chmod a+wr /var/lib/flatpak/app/com.spotify.Client/x86_64/stable/active/files/extra/share/spotify
 	sudo chmod a+wr -R /var/lib/flatpak/app/com.spotify.Client/x86_64/stable/active/files/extra/share/spotify/Apps
