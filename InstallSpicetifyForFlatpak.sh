@@ -36,7 +36,8 @@ else
 	# Restart the shell to add Spotify to PATH
 	# .config/spicetify won't appear unless the shell is restarted
 	# Note: Unsure if this will work :)
-	exec $SHELL
+	# https://stackoverflow.com/questions/2518127/how-to-reload-bashrc-settings-without-logging-out-and-back-in-again
+	exec bash
 	
 	# Check if the config file exists
 	# Set the file location and name as a variable
