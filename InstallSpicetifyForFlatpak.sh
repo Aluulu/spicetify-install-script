@@ -30,14 +30,14 @@ else
 	# Waits 5 seconds to allow Spotify to initialise
 	sleep 5
 
-    # Kills the running Spotify instance
-	spicetify restart
-	
 	# Restart the shell to add Spotify to PATH
 	# .config/spicetify won't appear unless the shell is restarted
-	# Note: Unsure if this will work :)
-	# https://stackoverflow.com/questions/2518127/how-to-reload-bashrc-settings-without-logging-out-and-back-in-again
-	exec bash
+	# "exec $SHELL" does not work, so the shell is HOPEFULLY restarted by sourcing the bashrc file
+	# https://linuxhint.com/reload-bashrc-bash/
+	source ~/.bashrc
+
+	# Waits 2 seconds to allow the shell to source the bashrc file
+	sleep 2
 	
 	# Check if the config file exists
 	# Set the file location and name as a variable
@@ -93,6 +93,9 @@ else
 	sudo chmod a+wr /var/lib/flatpak/app/com.spotify.Client/x86_64/stable/active/files/extra/share/spotify
 	sudo chmod a+wr -R /var/lib/flatpak/app/com.spotify.Client/x86_64/stable/active/files/extra/share/spotify/Apps
 
+	# Kills the running Spotify instance
+	spicetify restart
+
 	# Backs up Spicetify
 	spicetify backup
 
@@ -109,4 +112,5 @@ else
 
 	# Runs Spotify so that you can see if the changes have worked
 	flatpak run com.spotify.Client
+
 fi
