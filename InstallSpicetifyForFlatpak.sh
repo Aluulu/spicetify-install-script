@@ -7,8 +7,9 @@
 # Use this command to run the latest version of this script from GitHub:
 # curl -fsSL https://raw.githubusercontent.com/Aluulu/spicetify-install-script/main/InstallSpicetifyForFlatpak.sh | sh
 
-# Check if the configuration file exists. If it does, then spicetify must be installed already
-if [ -f "$HOME"/.config/spicetify/config-xpui.ini ];
+# Check if the configuration file has the correct arguments. If it does, then spicetify must be installed already
+# Check if the string exists in the file
+if grep -q "spotify_path            = /var/lib/flatpak/app/com.spotify.Client/x86_64/stable/active/files/extra/share/spotify/" "$HOME"/.config/spicetify/config-xpui.ini;
 then
 
 	# Reapply permissions to the Spotify directory, as the update will have removed them
