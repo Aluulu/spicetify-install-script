@@ -46,24 +46,24 @@ else
 	# Create variable to be used as a flag to indicate if the file exists
 	filefound=0
 
-	# Create a while loop to loop through until the file is found
-	while [ $filefound -eq 0 ]
-	do
+	# Check if config-xpui.ini does not exist
+	if [ ! -f "$filename" ];
 
-		# Check if the file exists
-		if [ -f "$filename" ];
-
-		# If the file exists, then set the flag to 1 and exit the loop
+		# If the file does not exists, exit the script
 		then
-			filefound=1
 
-		# If the file doesn't exist, then wait 1 second and check again
-		else
-			printf "%s not found. Waiting 1 second and checking again.\n" "$filename"
-			sleep 1
+			echo "$filename not found. Something must have gone wrong in the script."
+			echo "Please try this script again and if you continue to have issues, please report this issue on GitHub:"
+			echo "www.github.com/Aluulu/spicetify-install-script/issues"
+			echo "Press enter to exit."
 
-		fi
-	done
+			# Waits for the user to press enter
+			read
+
+			# Exits the script
+			exit 1
+
+	fi
 
 	# Changes the configuration to be correct
 	# Changes spotify_path to /var/lib/flatpak/app/com.spotify.Client/x86_64/stable/active/files/extra/share/spotify/
@@ -104,8 +104,8 @@ else
 
 	# Enables the extensions
 	spicetify config extensions fullAppDisplay.js
-    spicetify config custom_apps reddit
-    spicetify config custom_apps lyrics-plus
+	spicetify config custom_apps reddit
+	spicetify config custom_apps lyrics-plus
 
 	# Applies the newly added extensions
 	spicetify apply
